@@ -5,6 +5,7 @@ import reactPlugin from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
+  js.configs.recommended,
   tseslint.configs.recommended,
   reactPlugin.configs.flat.recommended,
 
@@ -25,6 +26,14 @@ export default defineConfig([
     },
     rules: {
       "react/react-in-jsx-scope": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ]
     },
   },
 
