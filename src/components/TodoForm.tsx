@@ -14,7 +14,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
         e.preventDefault();
         setError('');
         const trimmed = title.trim();
-        if (!trimmed) { setError('El título no puede estar vacío'); return; }
+        if (!trimmed) { setError('El título no puede estar vacio'); return; }
         if (trimmed.length > 200) { setError('Máximo 200 caracteres'); return; }
 
         setLoading(true);
@@ -29,7 +29,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
     }
 
     return (
-       <div className='mb-6'>
+        <div className='mb-6'>
             <form onSubmit={handleSubmit} className='flex gap-2'>
                 <input
                     type='text'
@@ -40,7 +40,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
                     aria-label="Nueva tarea"
                     className='flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                 />
-                <button 
+                <button
                     type='submit'
                     disabled={loading}
                     className='px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50'
@@ -49,6 +49,6 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
                 </button>
             </form>
             {error && <p role='alert' className='mt-2 text-sm text-red-600'>{error}</p>}
-       </div> 
+        </div>
     );
 }
