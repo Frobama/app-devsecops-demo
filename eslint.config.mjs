@@ -6,7 +6,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   js.configs.recommended,
-  tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
   reactPlugin.configs.flat.recommended,
 
   {
@@ -17,7 +17,10 @@ export default defineConfig([
     },
     extends: ["js/recommended"],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.jest
+      }
     },
     settings: {
       react: {
@@ -36,11 +39,20 @@ export default defineConfig([
       ]
     },
   },
-
   {
-    files: ["**/*.js"],
+    files: ["**/*.test.{ts,tsx,js,jsx}"],
     languageOptions: {
-      sourceType: "script",
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+  {
+    files: ["jest.config.js", "**/*.config.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
     },
   },
 
