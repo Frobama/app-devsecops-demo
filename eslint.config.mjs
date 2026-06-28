@@ -5,6 +5,9 @@ import reactPlugin from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
+  tseslint.configs.recommended,
+  reactPlugin.configs.flat.recommended,
+
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     plugins: {
@@ -32,6 +35,5 @@ export default defineConfig([
     },
   },
 
-  tseslint.configs.recommended,
-  reactPlugin.configs.flat.recommended,
+
 ]);
