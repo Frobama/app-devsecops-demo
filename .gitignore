@@ -141,3 +141,12 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+
+*.key
+*.pem
+*.p12
+__pycache__/
+dist/
+build/
+DS_Store
