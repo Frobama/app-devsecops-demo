@@ -9,7 +9,7 @@ RUN npm run build
 
 FROM node:20-alpine AS runtime
 
-RUN addgroup --system addgroup && adduser --system --ingroup appgroup appuser
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
 WORKDIR /app
 COPY --from=builder /app/dist ./dist
